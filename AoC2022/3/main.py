@@ -6,46 +6,34 @@ with open("data.in") as file:
 
     count = 0
     for line in lines:
-        firstpart, secondpart = line[:len(line)//2], line[len(line)//2:]
-        counterFirst = Counter(firstpart)
-        counterSecond = Counter(secondpart)
+        first_part, second_part = line[:len(line) // 2], line[len(line) // 2:]
+        counter_first = Counter(first_part)
+        counter_second = Counter(second_part)
         intersect = []
-        for item in counterFirst.keys():
-            if item in counterSecond.keys():
+        for item in counter_first.keys():
+            if item in counter_second.keys():
                 intersect.append(item)
-        print(intersect)
         for element in intersect:
             if element.islower():
                 count += ord(element) - 96
             else:
-                count += ord(element) - 64 + 26
+                count += ord(element) - 38
 
     print(count)
-    print()
-    print()
-    print("PART TWO")
-    print()
-    print()
 
     count = 0
-    lineCount = 0
     for lineCount in range(0, len(lines), 3):
-        print(lineCount)
-        print(lines[lineCount])
-        print(lines[lineCount+1])
-        print(lines[lineCount+2])
-        counterFirst = Counter(lines[lineCount])
-        counterSecond = Counter(lines[lineCount+1])
-        counterThird = Counter(lines[lineCount+2])
+        counter_first = Counter(lines[lineCount])
+        counter_second = Counter(lines[lineCount + 1])
+        counter_third = Counter(lines[lineCount + 2])
         intersect = []
-        for item in counterFirst.keys():
-            if item in counterSecond.keys() and item in counterThird.keys():
+        for item in counter_first.keys():
+            if item in counter_second.keys() and item in counter_third.keys():
                 intersect.append(item)
-        print(intersect)
         for element in intersect:
             if element.islower():
                 count += ord(element) - 96
             else:
-                count += ord(element) - 64 + 26
+                count += ord(element) - 38
 
     print(count)
