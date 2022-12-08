@@ -40,16 +40,16 @@ with open("data.in") as file:
                     if pwd in dir_sizes:
                         dir_size = dir_sizes[pwd]
         else:
-            if not line.startswith("dir"):
+            if line.startswith("dir"):
+                dir = get_path(pwd, line.split(" ")[1])
+                if dir in dir_sizes.keys():
+                    total_size += dir_sizes[dir]
+            else:
                 size = int(line.split(" ")[0])
                 file = line.split(" ")[1]
                 if file not in visited_files:
                     dir_size += size
                     visited_files.append(file)
-            else:
-                dir = get_path(pwd, line.split(" ")[1])
-                if dir in dir_sizes.keys():
-                    total_size += dir_sizes[dir]
 
     dir_sizes[pwd] = dir_size
     print(dir_stack, pwd, dir_sizes, line, sep=" - ")
