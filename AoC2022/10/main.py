@@ -1,16 +1,3 @@
-def is_touching(head, tail):
-    return \
-       (head[0] + 1 == tail[0] and head[1] + 1 == tail[1]) or \
-       (head[0] - 1 == tail[0] and head[1] - 1 == tail[1]) or \
-       (head[0] - 1 == tail[0] and head[1] + 1 == tail[1]) or \
-       (head[0] + 1 == tail[0] and head[1] - 1 == tail[1]) or \
-       (head[0] + 1 == tail[0] and head[1] == tail[1]) or \
-       (head[0] - 1 == tail[0] and head[1] == tail[1]) or \
-       (head[1] + 1 == tail[1] and head[0] == tail[0]) or \
-       (head[1] - 1 == tail[1] and head[0] == tail[0]) or \
-       (head == tail)
-
-
 with open("data.in") as file:
     lines = file.readlines()
     lines = [line.rstrip() for line in lines]
